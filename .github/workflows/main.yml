@@ -9,10 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Set CI environment variable to false
-      - name: Set CI to false
-        run: export CI=false
+      # Install NPM dependencies
+      - name: Install dependencies
+        run: npm install
 
-      # Install NPM dependencies and run all Cypress tests
+      # Run Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
+        with:
+          start: npm start
