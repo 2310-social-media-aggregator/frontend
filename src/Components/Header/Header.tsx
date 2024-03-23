@@ -2,7 +2,7 @@ import './Header.css';
 
 function Header() {
   return (
-    <h1>Social Media App</h1>
+    <h1>SOCIAL MEDIA APP</h1>
   );
 };
 

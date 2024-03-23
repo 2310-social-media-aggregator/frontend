@@ -19,7 +19,7 @@ function Home( props: HomeProps ) {
   })
   
   return (
-    <section>
+    <section className='card-container'>
     {creatorCards}
     </section>
   );
