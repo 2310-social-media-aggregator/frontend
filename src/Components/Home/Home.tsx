@@ -1,8 +1,27 @@
 import './Home.css';
+import CreatorCard from '../CreatorCard/CreatorCard';
+import { Creator } from '../../types'
 
-function Home() {
+type HomeProps = {
+  myCreators: Creator[];
+}
+
+function Home( props: HomeProps ) {
+
+  const creatorCards = props.myCreators.map(creator => {
+    return (
+      <CreatorCard
+      name={creator.attributes.name}
+      id={creator.id}
+      key={creator.id}
+      />
+    )
+  })
+  
   return (
-    <></>
+    <section className='card-container'>
+    {creatorCards}
+    </section>
   );
 };
 
