@@ -1,8 +1,16 @@
 import './CreatorCard.css';
 
-function CreatorCard() {
+type CreatorCardProps = {
+  name: string,
+  id: number,
+  key: number
+}
+
+function CreatorCard( props: CreatorCardProps ) {
   return (
-    <></>
+    <section className='card'>
+      <p>{props.name}</p>
+    </section>
   );
 };
 
