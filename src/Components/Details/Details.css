@@ -1,0 +1,22 @@
+.socials-header button {
+  background-color: #fff;
+  border: 2px solid #ccc;
+	border-radius: 5px;
+  color: #333;
+  padding: 10px 20px;
+  cursor: pointer;
+	transition: 0.2s;
+	margin:0.25em 0.5em;
+}
+
+.socials-header button.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+	transition: 0.2s;
+}
+
+.socials-header {
+  display: flex;
+  justify-content: center;
+}
