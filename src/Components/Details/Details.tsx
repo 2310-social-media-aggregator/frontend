@@ -19,7 +19,7 @@ function Details() {
 	return (
 		<div className='details'>
 			<h2>This is the details page</h2>
-			<div className="header">
+			<div className="socials-header">
 				<button
 					className={selectedButton === 'youtube' ? 'selected' : ''}
 					onClick={() => handleButtonClick('youtube')}
@@ -33,8 +33,8 @@ function Details() {
 					Twitch
 				</button>
 				<button
-					className={selectedButton === 'button3' ? 'selected' : ''}
-					onClick={() => handleButtonClick('button3')}
+					className={selectedButton === 'ect' ? 'selected' : ''}
+					onClick={() => handleButtonClick('ect')}
 				>
 					Etc.
 				</button>
