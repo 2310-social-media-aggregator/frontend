@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from '../Home/Home';
@@ -6,7 +6,6 @@ import Details from '../Details/Details';
 import NotFound from '../NotFound/NotFound';
 import Header from '../Header/Header';
 import mockdata from '../../mock-data-dana';
-import { useState } from 'react';
 import { Creator } from '../../types';
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
     console.log("Toggle all creators");
   };
 
-  //will eventually create a useEffect call here in order to setMyCreators() to the API call data
+  // will eventually create a useEffect call here in order to setMyCreators() to the API call data
   
   return (
     <div className="App">
@@ -30,12 +29,13 @@ function App() {
         onToggleAllCreators={handleToggleAllCreators} 
       />
       <Routes>
-        <Route path="/" element={<Home myCreators={myCreators}/>} />
+        <Route path="/" element={<Home myCreators={myCreators} />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
-};
+}
 
 export default App;
+
