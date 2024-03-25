@@ -1,0 +1,30 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  width: 50%;
+  margin: 5% 25%;
+  padding: 30px;
+  border-radius: 1em;
+}
+
+.not-found-title {
+  margin: 0;
+}
+
+.return-btn {
+  border: none;
+  border-radius: 1em;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.return-btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
