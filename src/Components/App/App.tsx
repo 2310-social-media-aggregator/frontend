@@ -21,7 +21,7 @@ function App() {
       return follows.includes(creator.id);
     });
     setSavedCreators(saved);
-    setAllCreators(saved); 
+    setAllCreators(saved);
   };
 
   const handleToggleAllCreators = () => {

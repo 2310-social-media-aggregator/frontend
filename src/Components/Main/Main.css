@@ -1,5 +1,15 @@
-.card-container {
+.main-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('../../images/bus.jpg');
+  background-position: top;
+  position: static;
+  height: 900px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.card-container {
+  margin-top: 50px;
 }

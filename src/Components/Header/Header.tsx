@@ -26,7 +26,7 @@ const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreat
   return (
     <header className="header">
       <div className="header-title">
-        <h1>Platform</h1>
+        <h1>PLATFORM</h1>
         <h2>Welcome, {name}</h2>
       </div>
       <nav className="navbar">

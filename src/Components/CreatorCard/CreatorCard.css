@@ -1,11 +1,19 @@
 .card {
-  border: 2px white solid;
   border-radius: 1em;
   width: 300px;
-  margin: 10px;
+  height: 2em;
+  margin: 20px;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 
 .card:hover {
   cursor: pointer;
   transform: scale(1.07);
+  font-weight: 900;
 }
+

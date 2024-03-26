@@ -5,11 +5,11 @@ a {
 
 h1 {
   letter-spacing: 0.2em;
-  font-size: 60px;
+  font-size: 70px;
+  font-weight: 800;
 }
 
 .header {
-  background-color: #333;
   color: #fff;
 }
 
@@ -27,11 +27,11 @@ h1 {
 }
 
 .header-title h2 {
-  margin: 0;
+  margin: 0 5px;
 }
 
 .navbar {
-  background-color: #333;
+  background-color: var(--secondary-color);
 }
 
 .navbar-nav {
@@ -44,6 +44,7 @@ h1 {
 .nav-item {
   cursor: pointer;
   padding: 0.5rem 1rem;
+  font-size: 20px;
 
 }
 

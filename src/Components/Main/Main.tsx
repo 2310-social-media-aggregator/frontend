@@ -1,4 +1,3 @@
-// Home.tsx
 import './Main.css';
 import CreatorCard from '../CreatorCard/CreatorCard';
 import { Creator } from '../../types';
@@ -22,8 +21,10 @@ function Main(props: MainProps) {
   });
   
   return (
-    <section className='card-container'>
+    <section className='main-page'>
+      <div className='card-container'>
       {creatorCards}
+      </div>
     </section>
   );
 }
