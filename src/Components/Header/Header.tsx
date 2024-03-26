@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 interface NavbarProps {
@@ -30,15 +31,21 @@ const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreat
       </div>
       <nav className="navbar">
         <ul className="navbar-nav">
-          <li className={`nav-item ${activeTab === 'home' ? 'active' : ''}`} onClick={() => handleTabChange('home')}>
-            Home
-          </li>
-          <li className={`nav-item ${activeTab === 'all' ? 'active' : ''}`} onClick={() => handleTabChange('all')}>
-            All Creators
-          </li>
-          <li className={`nav-item ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => handleTabChange('saved')}>
-            Saved Creators
-          </li>
+          <Link to='/'>
+            <li className={`nav-item ${activeTab === 'home' ? 'active' : ''}`} onClick={() => handleTabChange('home')}>
+              Home
+            </li>
+          </Link>
+          <Link to='/main'>
+            <li className={`nav-item ${activeTab === 'all' ? 'active' : ''}`} onClick={() => handleTabChange('all')}>
+              All Creators
+            </li>
+          </Link>
+          <Link to='/main'>
+            <li className={`nav-item ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => handleTabChange('saved')}>
+              Saved Creators
+            </li>
+          </Link>
         </ul>
       </nav>
     </header>

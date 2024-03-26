@@ -16,9 +16,7 @@ function App() {
   const [allCreators, setAllCreators] = useState<Creator[]>(myCreators);
 
   const handleToggleSavedCreators = () => {
-    
     const saved = myCreators.filter(creator => {
-     
       return follows.includes(creator.id);
     });
     setSavedCreators(saved);

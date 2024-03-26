@@ -1,10 +1,10 @@
 .home-container {
   background-image: url('../../images/platform.jpg');
+  background-position: top;
+  position: static;
   height: 1000px;
   background-repeat: no-repeat;
   background-size: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .start-btn {
@@ -13,11 +13,13 @@
   font-size: 20px;
   margin: 5em 0;
   padding: 0.5em 1em;
-  opacity: 80%;
-  font-weight: 600;
+  opacity: 60%;
+  font-weight: 900;
+  font-family: var(--main-font);
 }
 
 .start-btn:hover {
   cursor: pointer;
-  transform: scale(1.1)
+  transform: scale(1.1);
+  background-color: var(--main-color);
 }
