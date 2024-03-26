@@ -1,31 +1,14 @@
-// Home.tsx
 import './Home.css';
-import CreatorCard from '../CreatorCard/CreatorCard';
-import { Creator } from '../../types';
 import { Link } from 'react-router-dom';
 
-type HomeProps = {
-  myCreators: Creator[];
-}
-
-function Home(props: HomeProps) {
-  const creatorCards = props.myCreators.map(creator => {
-    return (
-      <Link to={`/details/${creator.id}`} key={creator.id}>
-        <CreatorCard
-          name={creator.attributes.name}
-          id={creator.id}
-          key={creator.id}
-        />
-      </Link>
-    );
-  });
-  
+function Home() {
   return (
-    <section className='card-container'>
-      {creatorCards}
+    <section>
+      <Link to='/main'>
+      <button>Get Started</button>
+      </Link>
     </section>
-  );
+  )
 }
 
 export default Home;

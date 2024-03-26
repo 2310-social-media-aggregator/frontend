@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Main from '../Main/Main';
 import Home from '../Home/Home';
 import Details from '../Details/Details';
 import NotFound from '../NotFound/NotFound';
@@ -40,7 +41,8 @@ function App() {
         follows={follows}
       />
       <Routes>
-        <Route path="/" element={<Home myCreators={allCreators} />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/main' element={<Main myCreators={allCreators} />} />
         <Route path='/details/:id' element={<Details myCreators={allCreators} follows={follows} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
