@@ -5,6 +5,7 @@ import Twitch from '../Twitch/Twitch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Creator } from '../../types';
+import mockdata from '../../mock-data-dana';
 
 
 interface DetailsProps {
@@ -62,6 +63,13 @@ function Details({ myCreators, follows }: DetailsProps) {
           )}
           {selectedButton === 'twitch' && (
             <>
+           {selectedButton === 'twitch' && (
+				<>
+					{mockdata.data[1].attributes.youtube_videos.map(video => (
+						<Twitch key={video.id} videoId={video.id} />
+					))}
+				</>
+			)}
             </>
           )}
         </>
