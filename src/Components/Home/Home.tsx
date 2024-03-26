@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <section>
+    <section className='home-container'>
       <Link to='/main'>
-      <button>Get Started</button>
+        <button className='start-btn'>Get Started</button>
       </Link>
     </section>
   )

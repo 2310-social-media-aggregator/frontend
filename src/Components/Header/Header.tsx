@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-
 interface NavbarProps {
   onToggleSavedCreators: () => void;
   onToggleAllCreators: () => void;
@@ -27,7 +26,7 @@ const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreat
     <header className="header">
       <div className="header-title">
         <h1>Platform</h1>
-        <h2>Welcome {name}</h2>
+        <h2>Welcome, {name}</h2>
       </div>
       <nav className="navbar">
         <ul className="navbar-nav">
