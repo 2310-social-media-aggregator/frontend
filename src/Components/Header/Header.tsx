@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './Header.css';
 
+
 interface NavbarProps {
   onToggleSavedCreators: () => void;
   onToggleAllCreators: () => void;
+  name: string; 
+  follows: number[]; 
 }
 
-const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreators }) => {
+const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreators, name, follows }) => {
   const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('all');
 
   const handleTabChange = (tab: 'saved' | 'all' | 'home') => {
@@ -24,7 +27,7 @@ const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreat
     <header className="header">
       <div className="header-title">
         <h1>Social Media App</h1>
-        <h2>Welcome User</h2>
+        <h2>Welcome {name}</h2>
       </div>
       <nav className="navbar">
         <ul className="navbar-nav">
@@ -44,3 +47,4 @@ const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreat
 };
 
 export default Header;
+

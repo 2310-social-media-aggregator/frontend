@@ -7,30 +7,41 @@ import NotFound from '../NotFound/NotFound';
 import Header from '../Header/Header';
 import mockdata from '../../mock-data-dana';
 import { Creator } from '../../types';
+import mockUserData from '../../mock-data-user'; 
 
 function App() {
   const [myCreators, setMyCreators] = useState<Creator[]>(mockdata.data);
-  const [creator, setCreator] = useState<Creator | null>(null);
+  const [savedCreators, setSavedCreators] = useState<Creator[]>([]);
+  const [allCreators, setAllCreators] = useState<Creator[]>(myCreators);
 
   const handleToggleSavedCreators = () => {
-    console.log("Toggle saved creators");
+    
+    const saved = myCreators.filter(creator => {
+     
+      return follows.includes(creator.id);
+    });
+    setSavedCreators(saved);
+    setAllCreators(saved); 
   };
 
   const handleToggleAllCreators = () => {
-    console.log("Toggle all creators");
+    setAllCreators(myCreators);
   };
 
-  // will eventually create a useEffect call here in order to setMyCreators() to the API call data
-  
+  const userName = mockUserData.data.user.name;
+  const follows = mockUserData.data.user.follows.map(follow => follow.creator_id); 
+
   return (
     <div className="App">
       <Header 
         onToggleSavedCreators={handleToggleSavedCreators} 
         onToggleAllCreators={handleToggleAllCreators} 
+        name={userName} 
+        follows={follows}
       />
       <Routes>
-        <Route path="/" element={<Home myCreators={myCreators} />} />
-        <Route path='/details/:id' element={<Details />} />
+        <Route path="/" element={<Home myCreators={allCreators} />} />
+        <Route path='/details/:id' element={<Details myCreators={allCreators} follows={follows} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
@@ -38,4 +49,3 @@ function App() {
 }
 
 export default App;
-
