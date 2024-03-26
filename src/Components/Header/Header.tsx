@@ -6,20 +6,20 @@ interface NavbarProps {
   onToggleSavedCreators: () => void;
   onToggleAllCreators: () => void;
   name: string; 
-  follows: number[]; 
+  follows: number[];
+  activeTab: string;
+  setActiveTab: (tab: 'saved' | 'all' | 'home') => void;
 }
 
-const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreators, name, follows }) => {
-  const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('all');
+const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreators, name, follows, activeTab, setActiveTab }) => {
 
   const handleTabChange = (tab: 'saved' | 'all' | 'home') => {
     setActiveTab(tab);
     if (tab === 'saved') {
       onToggleSavedCreators();
-    } else if (tab === 'all') {
+    }
+    if (tab === 'all') {
       onToggleAllCreators();
-    } else {
-      window.location.href = '/';
     }
   };
 

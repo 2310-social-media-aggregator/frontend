@@ -14,6 +14,7 @@ function App() {
   const [myCreators, setMyCreators] = useState<Creator[]>(mockdata.data);
   const [savedCreators, setSavedCreators] = useState<Creator[]>([]);
   const [allCreators, setAllCreators] = useState<Creator[]>(myCreators);
+  const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('home');
 
   const handleToggleSavedCreators = () => {
     const saved = myCreators.filter(creator => {
@@ -37,9 +38,11 @@ function App() {
         onToggleAllCreators={handleToggleAllCreators} 
         name={userName} 
         follows={follows}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
       />
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<Home setActiveTab={setActiveTab} onToggleAllCreators={handleToggleAllCreators} />}/>
         <Route path='/main' element={<Main myCreators={allCreators} />} />
         <Route path='/details/:id' element={<Details myCreators={allCreators} follows={follows} />} />
         <Route path='*' element={<NotFound />} />

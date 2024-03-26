@@ -1,11 +1,22 @@
 import './Home.css';
 import { Link } from 'react-router-dom';
 
-function Home() {
+interface HomeProps {
+  setActiveTab: (tab: 'saved' | 'all' | 'home') => void;
+  onToggleAllCreators: () => void;
+}
+
+function Home({ setActiveTab, onToggleAllCreators }: HomeProps) {
+  
+  const getStarted = () => {
+    setActiveTab('all');
+    onToggleAllCreators();
+  }
+  
   return (
     <section className='home-container'>
       <Link to='/main'>
-        <button className='start-btn'>Get Started</button>
+        <button className='start-btn' onClick={() => getStarted()}>Get Started</button>
       </Link>
     </section>
   )
