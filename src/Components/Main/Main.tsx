@@ -22,8 +22,10 @@ function Main(props: MainProps) {
   
   return (
     <section className='main-page'>
-      <div className='card-container'>
-      {creatorCards}
+      <div>
+        <section className='overlay'>
+          {creatorCards}
+        </section>
       </div>
     </section>
   );

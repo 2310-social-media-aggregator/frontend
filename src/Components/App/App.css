@@ -10,6 +10,5 @@ body {
   text-align: center;
   background: var(--secondary-color);
   color: white;
-  height:800px;
   font-family: var(--main-font);
 }
