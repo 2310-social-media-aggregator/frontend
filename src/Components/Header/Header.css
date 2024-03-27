@@ -1,50 +1,57 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
 h1 {
   letter-spacing: 0.2em;
-  font-size: 60px;
+  font-size: 70px;
+  font-weight: 800;
 }
 
 .header {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .header-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    color: black;
-    padding: 10px;
-  }
-  
-  .header-title h1 {
-    margin: 0;
-  }
-  
-  .header-title h2 {
-    margin: 0;
-  }
-  
-  .navbar {
-    background-color: #333;
-  }
-  
-  .navbar-nav {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    margin: 0px;
-  }
-  
-  .nav-item {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-  }
-  
-  .nav-item:hover {
-    background-color: #555;
-  }
-  
-  .active {
-    background-color: #555;
-  }  
+  color: #fff;
+}
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  padding: 10px;
+}
+
+.header-title h1 {
+  margin: 0;
+}
+
+.header-title h2 {
+  margin: 0 5px;
+}
+
+.navbar {
+  background-color: var(--secondary-color);
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px;
+}
+
+.nav-item {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 20px;
+
+}
+
+.nav-item:hover {
+  background-color: #555;
+}
+
+.active {
+  background-color: #555;
+}  

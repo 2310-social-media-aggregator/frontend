@@ -1,6 +1,14 @@
+:root {
+  --main-color:  rgb(255, 205, 106);
+  --secondary-color: rgb(34, 34, 34);
+  --tertiary-color: white;
+  --main-font: "Mulish", sans-serif;
+  --secondary-font: "Raleway", sans-serif;
+}
+
 body {
   text-align: center;
-  background: rgb(45, 45, 45);
+  background: var(--secondary-color);
   color: white;
-  height:800px;
+  font-family: var(--main-font);
 }

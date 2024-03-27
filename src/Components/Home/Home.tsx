@@ -1,31 +1,25 @@
-// Home.tsx
 import './Home.css';
-import CreatorCard from '../CreatorCard/CreatorCard';
-import { Creator } from '../../types';
 import { Link } from 'react-router-dom';
 
-type HomeProps = {
-  myCreators: Creator[];
+interface HomeProps {
+  setActiveTab: (tab: 'saved' | 'all' | 'home') => void;
+  onToggleAllCreators: () => void;
 }
 
-function Home(props: HomeProps) {
-  const creatorCards = props.myCreators.map(creator => {
-    return (
-      <Link to={`/details/${creator.id}`} key={creator.id}>
-        <CreatorCard
-          name={creator.attributes.name}
-          id={creator.id}
-          key={creator.id}
-        />
-      </Link>
-    );
-  });
+function Home({ setActiveTab, onToggleAllCreators }: HomeProps) {
+  
+  const getStarted = () => {
+    setActiveTab('all');
+    onToggleAllCreators();
+  }
   
   return (
-    <section className='card-container'>
-      {creatorCards}
+    <section className='home-container'>
+      <Link to='/main'>
+        <button className='start-btn' onClick={() => getStarted()}>Get Started</button>
+      </Link>
     </section>
-  );
+  )
 }
 
 export default Home;

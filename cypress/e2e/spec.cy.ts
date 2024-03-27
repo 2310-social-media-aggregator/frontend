@@ -1,7 +1,7 @@
 describe('application user flows', () => {
   it('displays the home page and expected elements on initial load', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('.header-title h1').contains('Social Media App');
+    cy.get('.header-title h1').contains('PLATFORM');
   });
 
   it('renders the NotFound page if user visits a non-existent url AND allows user to return back to Home page', () => {

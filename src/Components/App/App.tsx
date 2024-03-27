@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Main from '../Main/Main';
 import Home from '../Home/Home';
 import Details from '../Details/Details';
 import NotFound from '../NotFound/NotFound';
@@ -13,15 +14,14 @@ function App() {
   const [myCreators, setMyCreators] = useState<Creator[]>(mockdata.data);
   const [savedCreators, setSavedCreators] = useState<Creator[]>([]);
   const [allCreators, setAllCreators] = useState<Creator[]>(myCreators);
+  const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('home');
 
   const handleToggleSavedCreators = () => {
-    
     const saved = myCreators.filter(creator => {
-     
       return follows.includes(creator.id);
     });
     setSavedCreators(saved);
-    setAllCreators(saved); 
+    setAllCreators(saved);
   };
 
   const handleToggleAllCreators = () => {
@@ -38,9 +38,12 @@ function App() {
         onToggleAllCreators={handleToggleAllCreators} 
         name={userName} 
         follows={follows}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
       />
       <Routes>
-        <Route path="/" element={<Home myCreators={allCreators} />} />
+        <Route path='/' element={<Home setActiveTab={setActiveTab} onToggleAllCreators={handleToggleAllCreators} />}/>
+        <Route path='/main' element={<Main myCreators={allCreators} />} />
         <Route path='/details/:id' element={<Details myCreators={allCreators} follows={follows} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
