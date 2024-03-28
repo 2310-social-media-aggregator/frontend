@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
@@ -8,13 +8,20 @@ import NotFound from '../NotFound/NotFound';
 import Header from '../Header/Header';
 import mockdata from '../../mock-data-dana';
 import { Creator } from '../../types';
-import mockUserData from '../../mock-data-user'; 
+import mockUserData from '../../mock-data-user';
+import { getUserInfo, getCreators, getCreatorInfo } from '../../apiCalls';
 
 function App() {
   const [myCreators, setMyCreators] = useState<Creator[]>(mockdata.data);
   const [savedCreators, setSavedCreators] = useState<Creator[]>([]);
   const [allCreators, setAllCreators] = useState<Creator[]>(myCreators);
   const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('home');
+
+  useEffect(() => {
+    getCreators()
+      .then((data) => setAllCreators(data.attributes.creators))
+      // .catch((error) => setError(error.message));
+  }, []);
 
   const handleToggleSavedCreators = () => {
     const saved = myCreators.filter(creator => {
