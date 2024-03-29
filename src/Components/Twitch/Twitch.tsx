@@ -11,7 +11,7 @@ const Twitch: React.FC<TwtichProps> = ({ videoId }) => {
 
 	return (
 		<div className='twitch_card'>
-			<iframe src="https://player.twitch.tv/?channel=esl_dota2earth&parent=localhost:3000"
+			<iframe src="https://player.twitch.tv/?channel=esl_dota2earth&parent=capstonefrontend-dun.vercel.app"
 				allowFullScreen
 				scrolling="no"
 				height="378"
@@ -21,4 +21,3 @@ const Twitch: React.FC<TwtichProps> = ({ videoId }) => {
 };
 
 export default Twitch;
-
