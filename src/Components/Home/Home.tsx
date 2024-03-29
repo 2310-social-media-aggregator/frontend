@@ -1,22 +1,22 @@
 import './Home.css';
 import { Link } from 'react-router-dom';
 
-interface HomeProps {
-  setActiveTab: (tab: 'saved' | 'all' | 'home') => void;
-  onToggleAllCreators: () => void;
+type HomeProps = {
+  setActiveTab: (tab: 'saved' | 'all' | 'home') => void,
+  handlePageSwitch: (tab: 'saved' | 'all' | 'home') => void
 }
 
-function Home({ setActiveTab, onToggleAllCreators }: HomeProps) {
+function Home({ setActiveTab, handlePageSwitch }: HomeProps) {
   
-  const getStarted = () => {
+  const pushGetStarted = () => {
     setActiveTab('all');
-    onToggleAllCreators();
+    handlePageSwitch('all');
   }
   
   return (
     <section className='home-container'>
       <Link to='/main'>
-        <button className='start-btn' onClick={() => getStarted()}>Get Started</button>
+        <button className='start-btn' onClick={() => pushGetStarted()}>Get Started</button>
       </Link>
     </section>
   )

@@ -1,17 +1,31 @@
 export interface Creator {
-  "id": number,
-  "type": string,
-  "attributes": Attributes,
+  'name': string,
+  'id': number
 }
 
-export interface Attributes {
-  "name": string,
-  "youtube_videos": Youtube[]
+export interface User {
+  'name': string,
+  'follows': Creator[]
 }
 
-export interface Youtube {
-  "id": string,
-  "image": string,
-  "publishedAt": string,
-  "title": string
-}
+//=============================================
+
+// export interface Creator {
+//   "id": number,
+//   "type": string,
+//   "attributes": Attributes,
+// }
+
+// export interface Attributes {
+//   "name": string,
+//   "youtube_videos": Youtube[]
+// }
+
+// export interface Youtube {
+//   "id": string,
+//   "image": string,
+//   "publishedAt": string,
+//   "title": string
+// }
+
+

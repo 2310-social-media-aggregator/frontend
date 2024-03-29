@@ -6,52 +6,49 @@ import Home from '../Home/Home';
 import Details from '../Details/Details';
 import NotFound from '../NotFound/NotFound';
 import Header from '../Header/Header';
-import mockdata from '../../mock-data-dana';
-import { Creator } from '../../types';
-import mockUserData from '../../mock-data-user';
-import { getUserInfo, getCreators, getCreatorInfo } from '../../apiCalls';
+import { Creator, User } from '../../types';
+// import { getUserInfo, getCreators } from '../../apiCalls';
+import mockUser from '../../mock-data-user-info';
+import mockCreators from '../../mock-data-creators';
 
 function App() {
-  const [myCreators, setMyCreators] = useState<Creator[]>(mockdata.data);
-  const [savedCreators, setSavedCreators] = useState<Creator[]>([]);
-  const [allCreators, setAllCreators] = useState<Creator[]>(myCreators);
+  const [user, setUser] = useState<User | null>(mockUser.data.attributes)
+  const [savedCreators, setSavedCreators] = useState<[] >([]);
+  const [allCreators, setAllCreators] = useState<Creator[] | null>(mockCreators.data.attributes.creators);
+  const [displayedCreators, setDisplayedCreators] = useState<Creator[] | null>(null);
   const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('home');
 
-  useEffect(() => {
-    getCreators()
-      .then((data) => setAllCreators(data.attributes.creators))
-      // .catch((error) => setError(error.message));
-  }, []);
+  // useEffect(() => {
+  //   getCreators()
+  //     .then(data => setAllCreators(data.data.attributes.creators))
+  //   getUserInfo()
+  //     .then(data => {
+  //       setUser(data.data.attributes)
+  //       setSavedCreators(data.data.attributes.follows)
+  //     })
+  // }, []);
 
-  const handleToggleSavedCreators = () => {
-    const saved = myCreators.filter(creator => {
-      return follows.includes(creator.id);
-    });
-    setSavedCreators(saved);
-    setAllCreators(saved);
-  };
-
-  const handleToggleAllCreators = () => {
-    setAllCreators(myCreators);
-  };
-
-  const userName = mockUserData.data.user.name;
-  const follows = mockUserData.data.user.follows.map(follow => follow.creator_id); 
+  const handlePageSwitch = (tab: string) => {
+    if (tab === 'all') {
+      setDisplayedCreators(allCreators)
+    }
+    if (tab === 'saved') {
+      setDisplayedCreators(savedCreators)
+    }
+  }
 
   return (
     <div className="App">
       <Header 
-        onToggleSavedCreators={handleToggleSavedCreators} 
-        onToggleAllCreators={handleToggleAllCreators} 
-        name={userName} 
-        follows={follows}
+        handlePageSwitch={handlePageSwitch} 
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        user={user}
       />
       <Routes>
-        <Route path='/' element={<Home setActiveTab={setActiveTab} onToggleAllCreators={handleToggleAllCreators} />}/>
-        <Route path='/main' element={<Main myCreators={allCreators} />} />
-        <Route path='/details/:id' element={<Details myCreators={allCreators} follows={follows} />} />
+        <Route path='/' element={<Home setActiveTab={setActiveTab} handlePageSwitch={handlePageSwitch} />} />
+        <Route path='/main' element={<Main displayedCreators={displayedCreators} />} />
+        <Route path='/details/:id' element={<Details />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

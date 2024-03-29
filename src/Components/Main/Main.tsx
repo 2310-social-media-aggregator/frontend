@@ -4,21 +4,24 @@ import { Creator } from '../../types';
 import { Link } from 'react-router-dom';
 
 type MainProps = {
-  myCreators: Creator[];
+  displayedCreators: Creator[] | null
 }
 
-function Main(props: MainProps) {
-  const creatorCards = props.myCreators.map(creator => {
-    return (
-      <Link to={`/details/${creator.id}`} key={creator.id}>
-        <CreatorCard
-          name={creator.attributes.name}
-          id={creator.id}
-          key={creator.id}
-        />
-      </Link>
-    );
-  });
+function Main({ displayedCreators }: MainProps) {
+  let creatorCards;
+  if (displayedCreators) {
+    creatorCards = displayedCreators.map(creator => {
+      return (
+        <Link to={`/details/${creator.id}`} key={creator.id}>
+          <CreatorCard
+            name={creator.name}
+            id={creator.id}
+            key={creator.id}
+          />
+        </Link>
+      );
+    });
+  }
   
   return (
     <section className='main-page'>
