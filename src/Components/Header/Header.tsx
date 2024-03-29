@@ -1,33 +1,26 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Header.css';
+import { Link } from 'react-router-dom';
+import { User } from '../../types';
 
-interface NavbarProps {
-  onToggleSavedCreators: () => void;
-  onToggleAllCreators: () => void;
-  name: string; 
-  follows: number[];
-  activeTab: string;
-  setActiveTab: (tab: 'saved' | 'all' | 'home') => void;
+type HeaderProps = {
+  handlePageSwitch: (tab: string) => void,
+  activeTab: string,
+  setActiveTab: (tab: 'saved' | 'all' | 'home') => void,
+  user: User | null
 }
 
-const Header: React.FC<NavbarProps> = ({ onToggleSavedCreators, onToggleAllCreators, name, follows, activeTab, setActiveTab }) => {
+function Header({ handlePageSwitch, activeTab, setActiveTab, user }: HeaderProps) {
 
   const handleTabChange = (tab: 'saved' | 'all' | 'home') => {
     setActiveTab(tab);
-    if (tab === 'saved') {
-      onToggleSavedCreators();
-    }
-    if (tab === 'all') {
-      onToggleAllCreators();
-    }
+    handlePageSwitch(tab);
   };
 
   return (
     <header className="header">
       <div className="header-title">
         <h1>PLATFORM</h1>
-        <h2>Welcome, {name}</h2>
+        <h2>Welcome, {user && user.name}</h2>
       </div>
       <nav className="navbar">
         <ul className="navbar-nav">

@@ -6,10 +6,10 @@ type CreatorCardProps = {
   key: number
 }
 
-function CreatorCard( props: CreatorCardProps ) {
+function CreatorCard( { name, id, key }: CreatorCardProps ) {
   return (
     <section className='card'>
-      <p>{props.name}</p>
+      <p>{name}</p>
     </section>
   );
 };
