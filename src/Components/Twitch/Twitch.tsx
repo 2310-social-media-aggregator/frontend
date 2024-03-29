@@ -1,23 +1,23 @@
 import './Twitch.css';
 import React from 'react';
 
-interface TwtichProps {
+interface TwitchProps {
 	videoId: string;
 }
 
-const Twitch: React.FC<TwtichProps> = ({ videoId }) => {
+const Twitch: React.FC<TwitchProps> = ({ videoId }) => {
 	// Construct the URL of the embedded YouTube video
-	// const youtubeUrl = `https://www.youtube.com/embed/${videoId}`; will use later with actual twtich data
-
-	return (
-		<div className='twitch_card'>
-			<iframe src="https://player.twitch.tv/?channel=esl_dota2earth&parent=localhost:3000"
-				allowFullScreen
-				scrolling="no"
-				height="378"
-				width="620"></iframe>
-		</div>
-	);
+  const twitchURL = `https://player.twitch.tv/?video=v${videoId}&parent=capstonefrontend-dun.vercel.app&autoplay=false`
+  return (
+    <div className='twitch_card'>
+      <iframe
+        src={twitchURL}
+        allowFullScreen
+        scrolling="no"
+        height="378"
+        width="620"></iframe>
+    </div>
+  );
 };
 
 export default Twitch;

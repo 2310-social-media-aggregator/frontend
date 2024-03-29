@@ -46,7 +46,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home setActiveTab={setActiveTab} handlePageSwitch={handlePageSwitch} />} />
         <Route path='/main' element={<Main displayedCreators={displayedCreators} />} />
-        <Route path='/details/:id' element={<Details />} />
+        <Route path='/details/:id' element={<Details displayedCreators={displayedCreators}/>} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
