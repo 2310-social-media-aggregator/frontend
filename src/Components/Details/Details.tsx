@@ -1,4 +1,4 @@
-// import './Details.css'
+import './Details.css'
 // import Youtube from '../Youtube/Youtube';
 // import Twitch from '../Twitch/Twitch';
 // import { useEffect, useState } from 'react';

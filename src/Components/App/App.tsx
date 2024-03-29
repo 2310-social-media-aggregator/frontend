@@ -7,26 +7,24 @@ import Details from '../Details/Details';
 import NotFound from '../NotFound/NotFound';
 import Header from '../Header/Header';
 import { Creator, User } from '../../types';
-// import { getUserInfo, getCreators } from '../../apiCalls';
-import mockUser from '../../mock-data-user-info';
-import mockCreators from '../../mock-data-creators';
+import { getUserInfo, getCreators } from '../../apiCalls';
 
 function App() {
-  const [user, setUser] = useState<User | null>(mockUser.data.attributes)
+  const [user, setUser] = useState<User | null>(null)
   const [savedCreators, setSavedCreators] = useState<[] >([]);
-  const [allCreators, setAllCreators] = useState<Creator[] | null>(mockCreators.data.attributes.creators);
+  const [allCreators, setAllCreators] = useState<Creator[] | null>(null);
   const [displayedCreators, setDisplayedCreators] = useState<Creator[] | null>(null);
   const [activeTab, setActiveTab] = useState<'saved' | 'all' | 'home'>('home');
 
-  // useEffect(() => {
-  //   getCreators()
-  //     .then(data => setAllCreators(data.data.attributes.creators))
-  //   getUserInfo()
-  //     .then(data => {
-  //       setUser(data.data.attributes)
-  //       setSavedCreators(data.data.attributes.follows)
-  //     })
-  // }, []);
+  useEffect(() => {
+    getCreators()
+      .then(data => setAllCreators(data.data.attributes.creators))
+    getUserInfo()
+      .then(data => {
+        setUser(data.data.attributes)
+        setSavedCreators(data.data.attributes.follows)
+      })
+  }, []);
 
   const handlePageSwitch = (tab: string) => {
     if (tab === 'all') {
