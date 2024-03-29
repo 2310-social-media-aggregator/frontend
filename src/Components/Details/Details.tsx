@@ -19,10 +19,9 @@ function Details({ displayedCreators }: DetailsProps) {
 		setSelectedButton(buttonId);
 	};
 
-	useEffect(() => {
-		console.log("button changed to: ", selectedButton)
-
-	}, [selectedButton])
+	// useEffect(() => {
+	// 	console.log("button changed to: ", selectedButton)
+	// }, [selectedButton])
 
 	let creator;
 	if (displayedCreators) {
@@ -32,18 +31,18 @@ function Details({ displayedCreators }: DetailsProps) {
 	useEffect(() => {
 		getCreatorInfo(parseInt(id || '', 10))
 		.then(data => {
-			console.log("the data retrieved",data.data);
+			// console.log("the data retrieved",data.data);
 			setCreatorInfo(data.data);
 		})
 	}, [id])
 
-	useEffect(() => {
-		console.log("value of creatorInfo", creatorInfo);
-		if (creatorInfo) {
-			console.log("value of youtube videos: ", creatorInfo.attributes.youtube_videos);
-			console.log("value of twitch videos: ", creatorInfo.attributes.twitch_videos);
-		}
-	}, [creatorInfo]);
+	// useEffect(() => {
+	// 	console.log("value of creatorInfo", creatorInfo);
+	// 	if (creatorInfo) {
+	// 		console.log("value of youtube videos: ", creatorInfo.attributes.youtube_videos);
+	// 		console.log("value of twitch videos: ", creatorInfo.attributes.twitch_videos);
+	// 	}
+	// }, [creatorInfo]);
 
 	return (
 		<div className='details'>
