@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Creator } from '../../types';
 import mockdata from '../../mock-data-dana';
+import mockTwitch from '../../mock-data-twitch';
 
 
 interface DetailsProps {
@@ -68,10 +69,10 @@ function Details({ myCreators, follows }: DetailsProps) {
 					)}
 					{selectedButton === 'twitch' && (
 						<>
-							{mockdata.data[1].attributes.youtube_videos.length === 0 ? (
+							{mockTwitch.data.attributes.twitch_videos.length === 0 ? (
 								<p>No videos available for this section</p>
 							) : (
-								mockdata.data[1].attributes.youtube_videos.map(video => (
+								mockTwitch.data.attributes.twitch_videos.map (video => (
 									<Twitch key={video.id} videoId={video.id} />
 								))
 							)}

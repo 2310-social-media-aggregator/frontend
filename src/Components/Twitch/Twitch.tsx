@@ -8,10 +8,11 @@ interface TwtichProps {
 const Twitch: React.FC<TwtichProps> = ({ videoId }) => {
 	// Construct the URL of the embedded YouTube video
 	// const youtubeUrl = `https://www.youtube.com/embed/${videoId}`; will use later with actual twtich data
-
+	const twitchURL = `https://player.twitch.tv/?video=v${videoId}&parent=capstonefrontend-dun.vercel.app&autoplay=false`
 	return (
 		<div className='twitch_card'>
-			<iframe src="https://player.twitch.tv/?channel=esl_dota2earth&parent=capstonefrontend-dun.vercel.app"
+			<iframe
+				src={twitchURL}
 				allowFullScreen
 				scrolling="no"
 				height="378"
