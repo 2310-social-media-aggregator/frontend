@@ -1,0 +1,30 @@
+{
+  "data": {
+    "id": null,
+    "type": "creator_index",
+    "attributes": {
+      "creators": [
+        {
+          "name": "Mock Aztecross",
+          "id": 1
+        },
+        {
+          "name": "Mock ZFG",
+          "id": 2
+        },
+        {
+          "name": "Mock Northernlion",
+          "id": 3
+        },
+        {
+          "name": "Mock Bobbeigh",
+          "id": 4
+        },
+        {
+          "name": "Mock Bawkbasoup",
+          "id": 5
+        }
+      ]
+    }
+  }
+}
