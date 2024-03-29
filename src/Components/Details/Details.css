@@ -1,22 +1,63 @@
 .socials-header button {
-  background-color: #fff;
-  border: 2px solid #ccc;
-	border-radius: 5px;
-  color: #333;
+  background-color: var(--secondary-color); 
+  border: none;
+  border-radius: 10px;
+  color: white;
   padding: 10px 20px;
   cursor: pointer;
-	transition: 0.2s;
-	margin:0.25em 0.5em;
+  transition: background-color 0.5s, transform 0.5s; 
+  margin: 0.25em 0.5em;
+  position: relative; 
+  overflow: hidden; 
 }
+
+.socials-header button::before,
+.socials-header button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.socials-header button::before {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.socials-header button:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+
+.socials-header button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: scale(1.2,1.2);
+}
+
+.socials-header button:hover::after {
+  opacity: 1;
+  transform: scale(1,1);
+}
+
+.socials-header button:hover {
+  background-color: var(--color-steel); 
+  transform: scale(1.07);
+}
+
 
 .socials-header button.selected {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
-	transition: 0.2s;
-}
-
-.socials-header {
-  display: flex;
-  justify-content: center;
+  background-color: var(--color-beige); 
+  color: var(--secondary-color);
+  border-color: var(--color-beige); 
 }

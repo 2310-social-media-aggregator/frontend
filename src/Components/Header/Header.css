@@ -17,21 +17,34 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  color: black;
+  background-color: var(--tertiary-color);
+  color: var(--color-steel);
   padding: 10px;
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
 
 .header-title h1 {
   margin: 0;
+  animation: fadeInFromRight 3s ease forwards; 
 }
+
 
 .header-title h2 {
   margin: 0 5px;
 }
 
 .navbar {
-  background-color: var(--secondary-color);
+  background-color: var(--color-black);
 }
 
 .navbar-nav {
@@ -49,9 +62,9 @@ h1 {
 }
 
 .nav-item:hover {
-  background-color: #555;
+  background-color: var(--color-steel);
 }
 
 .active {
-  background-color: #555;
+  background-color: var(--color-steel);
 }  
