@@ -4,7 +4,16 @@
     "type": "user",
     "attributes": {
       "name": "Mock Thomas",
-      "follows": []
+      "follows": [
+        {
+          "name": "Mock Northernlion",
+          "id": 3
+        },
+        {
+          "name": "Mock Bobbeigh",
+          "id": 4
+        }
+      ]
     }
   }
 }
