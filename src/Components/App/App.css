@@ -17,3 +17,10 @@ body {
   color: white;
   font-family: var(--main-font);
 }
+
+.error-message {
+  background-color: #ff0000; 
+  color: #ffffff; 
+  padding: 10px; 
+  border-radius: 5px; 
+}
