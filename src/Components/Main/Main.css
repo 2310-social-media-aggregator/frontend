@@ -9,17 +9,33 @@
   background-size: 100%;
 }
 
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1; 
+  }
+}
+
+
+.overlay {
+  animation: fadeIn 1s ease;
+}
+
+
 .overlay {
   background-color: white;
-  opacity: 80%;
   width: 900px;
   min-height: 70vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
   border-radius: 1em;
+  flex-wrap: wrap;
 }
 
 .card-container {

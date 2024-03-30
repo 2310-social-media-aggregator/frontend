@@ -1,9 +1,14 @@
 :root {
   --main-color:  rgb(255, 205, 106);
-  --secondary-color: rgb(34, 34, 34);
+  --secondary-color: #121308;
   --tertiary-color: white;
   --main-font: "Mulish", sans-serif;
   --secondary-font: "Raleway", sans-serif;
+  --color-golden: #B67D43;
+  --color-beige: #D9A878;
+  --color-steel: #3D5265;
+  --color-brown: #514136;
+  --color-black: #121308;
 }
 
 body {
