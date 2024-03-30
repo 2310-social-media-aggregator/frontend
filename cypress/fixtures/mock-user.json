@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": "1",
+    "type": "user",
+    "attributes": {
+      "name": "Mock Thomas",
+      "follows": [
+        {
+          "name": "Mock Northernlion",
+          "id": 3
+        },
+        {
+          "name": "Mock Bobbeigh",
+          "id": 4
+        }
+      ]
+    }
+  }
+}
