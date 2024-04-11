@@ -64,6 +64,7 @@ describe('application user flows', () => {
     cy.get('.card').should('have.length', 5);
     cy.wait(1000);
     cy.get('.card').first().contains('Mock Northernlion');
+    cy.wait(1000);
     cy.get('.card').last().contains('Mock Bawkbasoup');
   });
 
