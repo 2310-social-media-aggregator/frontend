@@ -61,9 +61,9 @@ describe('application user flows', () => {
     cy.get('.nav-item').contains('All Creators');
     cy.get('.nav-item').contains('Saved Creators');
     cy.get('.overlay').should('exist');
-    cy.get('.card').should('have.length', 2);
+    cy.get('.card').should('have.length', 5);
     cy.get('.card').first().contains('Mock Northernlion');
-    cy.get('.card').last().contains('Mock Bobbeigh');
+    cy.get('.card').last().contains('Mock Bawkbasoup');
   });
 
   it('takes user back to home page and displays expected elements by clicking home button', () => {
