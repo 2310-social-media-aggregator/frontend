@@ -61,9 +61,11 @@ describe('application user flows', () => {
     cy.get('.nav-item').contains('All Creators');
     cy.get('.nav-item').contains('Saved Creators');
     cy.get('.overlay').should('exist');
-    cy.wait(1000);
+    cy.log('grabbing all cards.')
     cy.get('.card').should('have.length', 5);
+    cy.log('grabbing .card.')
     cy.get('.card').first().contains('Mock Northernlion');
+    cy.log('grabbing second .card.')
     cy.get('.card').last().contains('Mock Bawkbasoup');
   });
 
