@@ -38,7 +38,19 @@ The Front-end application is deployed via Vercel, as it was the easiest to deplo
 
 ![Vercel Deployment](/src/images/vercelDeployment.png)
 
-## Using this application
+## Developing this Application
+
+To develop the Frontend portion of this application, we built both a wireframe and a component architecture before we started coding our application.
+
+![Wireframe](/src/images/WireFrame.png)
+This wireframe outlines how our components interact with each other. The main home page displays the all of the creators that are saved in the Back-end server. When a user clicks on a user, a fetch request is sent to the Back-end server, which then returns that creator's information, including their Youtube videos, their most recent Twtich streams, and so on. Keep in mind that their is only one fetch request made to get the Youtube and Twitch information, with the buttons at the tops of the Creators page only showing and hiding their specific sections. This was done to make sure we don't query our Back-end database to much. 
+
+Future extensions will aim to also show the creators Twitter page, their Instagram post, and so on. To move between webpages, we used React Router to make sure each Creator has their own specific url, which allows users to move through the webpage easier.
+
+![Component Architecture](/src/images/Component%20Architecture%20complex.png)
+This component architecture outlines how data is passed between components in our webpage. The App is the highest level component, which all other component send and recieve props from. This was made before we started coding, but for the most part, this component architecture is accurate to our actual application. 
+
+## Using this Application
 
 This application is the Frontend portion of the application, which is deployed at this url:
 
@@ -65,7 +77,11 @@ If a user selects a creator that doesn't have videos for either Youtube or Twitc
 
 ![No Videos for this Creator](/src/images/NoVideosCreator.png)
 
-### Future extensions:
+If a user types in an incorrect or invalid URL, an error page is displayed.
+
+![Error Page](/src/images/ErrorPage.png)
+
+### Future Extensions:
 Our team plans to add more services to this application over time. For starters, we plan to add a feature that will allow users to save creators to their own personal list, which will be showed by default at the start of the application.
 
 Other features include adding more services to the Backend, such as Twitter and Instagram, that will be displayed on the Creators respectice details page.
