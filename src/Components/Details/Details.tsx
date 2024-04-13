@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Creator , CreatorInfo, YoutubeVideo, TwitchVideo} from '../../types';
 import { getCreatorInfo } from '../../apiCalls';
+import { MdFavorite } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
 
 type DetailsProps = {
 	displayedCreators: Creator[] | null
@@ -19,10 +21,6 @@ function Details({ displayedCreators }: DetailsProps) {
 		setSelectedButton(buttonId);
 	};
 
-	// useEffect(() => {
-	// 	console.log("button changed to: ", selectedButton)
-	// }, [selectedButton])
-
 	let creator;
 	if (displayedCreators) {
 		creator = displayedCreators.find(creator => creator.id === parseInt(id || '', 10));
@@ -31,24 +29,18 @@ function Details({ displayedCreators }: DetailsProps) {
 	useEffect(() => {
 		getCreatorInfo(parseInt(id || '', 10))
 		.then(data => {
-			// console.log("the data retrieved",data.data);
 			setCreatorInfo(data.data);
 		})
 	}, [id])
 
-	// useEffect(() => {
-	// 	console.log("value of creatorInfo", creatorInfo);
-	// 	if (creatorInfo) {
-	// 		console.log("value of youtube videos: ", creatorInfo.attributes.youtube_videos);
-	// 		console.log("value of twitch videos: ", creatorInfo.attributes.twitch_videos);
-	// 	}
-	// }, [creatorInfo]);
-
 	return (
-		<div className='details'>
+		<div className='details-page'>
 			{creator && (
-				<>
-					<h2>{creator.name}'s Details</h2>
+				<section className='details-overlay'>
+					<div className='btn-container'>
+						<button className='hrt-btn'><MdFavoriteBorder /></button>
+					</div>
+					<h2 className='creator-name'>{creator.name}</h2>
 					<div className="socials-header">
 						<button
 							className={selectedButton === 'youtube' ? 'selected' : ''}
@@ -61,12 +53,6 @@ function Details({ displayedCreators }: DetailsProps) {
 							onClick={() => handleButtonClick('twitch')}
 						>
 							Twitch
-						</button>
-						<button
-							className={selectedButton === 'ect' ? 'selected' : ''}
-							onClick={() => handleButtonClick('ect')}
-						>
-							Etc.
 						</button>
 					</div>
 
@@ -92,7 +78,7 @@ function Details({ displayedCreators }: DetailsProps) {
 							)}
 						</>
 					)}
-				</>
+				</section>
 			)}
 		</div>
 	);
