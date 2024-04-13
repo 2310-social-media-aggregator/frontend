@@ -13,17 +13,27 @@ type DetailsProps = {
 }
 
 function Details({ displayedCreators }: DetailsProps) {
-	const { id } = useParams();
-	const [selectedButton, setSelectedButton] = useState<string>('youtube');
-	const [creatorInfo, setCreatorInfo] = useState<CreatorInfo | null>(null);
 
-	const handleButtonClick = (buttonId: string) => {
-		setSelectedButton(buttonId);
+	const { id } = useParams();
+	const [selectedContentButton, setSelectedContentButton] = useState<string>('youtube');
+	const [creatorInfo, setCreatorInfo] = useState<CreatorInfo | null>(null);
+	const [favorited, setFavorited] = useState<boolean>(false)
+
+	const handleContentButtonClick = (buttonId: string) => {
+		setSelectedContentButton(buttonId);
 	};
 
 	let creator;
 	if (displayedCreators) {
 		creator = displayedCreators.find(creator => creator.id === parseInt(id || '', 10));
+	}
+
+	const toggleHeart = () => {
+		if (favorited) {
+			setFavorited(false)
+		} else {
+			setFavorited(true)
+		}
 	}
 
 	useEffect(() => {
@@ -38,25 +48,34 @@ function Details({ displayedCreators }: DetailsProps) {
 			{creator && (
 				<section className='details-overlay'>
 					<div className='btn-container'>
-						<button className='hrt-btn'><MdFavoriteBorder /></button>
+						<button
+						onClick={() => toggleHeart()}
+						className={favorited ? 'hrt-btn-empty hidden' : 'hrt-btn-empty'}>
+							<MdFavoriteBorder />
+						</button>
+						<button
+						onClick={() => toggleHeart()}
+						className={favorited ? 'hrt-btn-full' : 'hrt-btn-full hidden'}>
+								<MdFavorite />
+						</button>
 					</div>
 					<h2 className='creator-name'>{creator.name}</h2>
 					<div className="socials-header">
 						<button
-							className={selectedButton === 'youtube' ? 'selected' : ''}
-							onClick={() => handleButtonClick('youtube')}
+							className={selectedContentButton === 'youtube' ? 'selected' : ''}
+							onClick={() => handleContentButtonClick('youtube')}
 						>
 							Youtube
 						</button>
 						<button
-							className={selectedButton === 'twitch' ? 'selected' : ''}
-							onClick={() => handleButtonClick('twitch')}
+							className={selectedContentButton === 'twitch' ? 'selected' : ''}
+							onClick={() => handleContentButtonClick('twitch')}
 						>
 							Twitch
 						</button>
 					</div>
 
-					{selectedButton === 'youtube' && (
+					{selectedContentButton === 'youtube' && (
 						<>
 							{creatorInfo?.attributes.youtube_videos.length === 0 ? (
 								<p>No videos available for this section</p>
@@ -67,7 +86,7 @@ function Details({ displayedCreators }: DetailsProps) {
 							)}
 						</>
 					)}
-					{selectedButton === 'twitch' && (
+					{selectedContentButton === 'twitch' && (
 						<>
 							{creatorInfo?.attributes.youtube_videos.length === 0 ? (
 								<p>No videos available for this section</p>

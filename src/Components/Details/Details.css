@@ -75,7 +75,7 @@
 }
 
 .details-overlay {
-  animation: fadeIn 1s ease;
+  /* animation: fadeIn 1s ease; */
   background-color: white;
   width: 900px;
   min-height: 70vh;
@@ -94,7 +94,7 @@
   width: 100%;
 }
 
-.hrt-btn {
+.hrt-btn-empty, .hrt-btn-full {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,7 +108,7 @@
   background-color: var(--main-color);
 }
 
-.hrt-btn:hover {
+.hrt-btn-empty:hover, .hrt-btn-full:hover {
   cursor: pointer;
   transform: scale(1.08)
 }
@@ -120,6 +120,9 @@
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
 
 
 
