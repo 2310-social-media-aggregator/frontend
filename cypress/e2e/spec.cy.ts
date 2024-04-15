@@ -8,6 +8,10 @@ describe('application user flows', () => {
       statusCode: 200,
       fixture: 'mock-user'
     });
+    cy.intercept('GET', 'https://be2310-social-media-aggregator-18a4f3a92617.herokuapp.com/api/v1/creators/*', {
+      statusCode: 200,
+      fixture: 'mock-creator-details'
+    }).as('getCreatorDetails');
     cy.visit('http://localhost:3000/');
   });
   
@@ -64,6 +68,13 @@ describe('application user flows', () => {
     cy.get('.start-btn').contains('Get Started');
   });
 
+  it('displays creator details with Youtube videos', () => {
+    cy.get('.start-btn').contains('Get Started').click();
+    cy.get('.overlay').should('exist');
+    cy.get('.card').contains('Mock Aztecross').click({ force: true });
+    cy.wait('@getCreatorDetails');
+    cy.get('h2').contains('Mock Aztecross');
+  });
 
   it('renders the NotFound page if user visits a non-existent url AND allows user to return back to Home page', () => {
     cy.visit('http://localhost:3000/potato');
