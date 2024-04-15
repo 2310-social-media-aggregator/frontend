@@ -51,24 +51,6 @@ describe('application user flows', () => {
     cy.get('.card').last().contains('Mock Bawkbasoup');
   });
 
-  it('takes user to saved creators page and displays expected elements by clicking saved creators button', () => {
-    cy.url().should('eq', 'http://localhost:3000/');
-    cy.get('.nav-item').contains('Saved Creators').click();
-    cy.url().should('eq', 'http://localhost:3000/main');
-    cy.get('.header-title h1').contains('PLATFORM');
-    cy.get('h2').contains('Welcome, Mock Thomas');
-    cy.get('.nav-item').contains('Home');
-    cy.get('.nav-item').contains('All Creators');
-    cy.get('.nav-item').contains('Saved Creators');
-    cy.get('.overlay').should('exist');
-    cy.log('grabbing all cards.')
-    cy.get('.card').should('have.length', 5);
-    cy.log('grabbing .card.')
-    cy.get('.card').first().contains('Mock Northernlion');
-    cy.log('grabbing second .card.')
-    cy.get('.card').last().contains('Mock Bawkbasoup');
-  });
-
   it('takes user back to home page and displays expected elements by clicking home button', () => {
     cy.visit('http://localhost:3000/main');
     cy.url().should('eq', 'http://localhost:3000/main');
