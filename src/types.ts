@@ -3,6 +3,10 @@ export interface Creator {
   'id': number
 }
 
+export interface CreatorPost{
+  "creator_id": number
+}
+
 export interface User {
   'name': string,
   'follows': Creator[]

@@ -3,13 +3,14 @@ import Youtube from '../Youtube/Youtube';
 import Twitch from '../Twitch/Twitch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Creator , CreatorInfo, YoutubeVideo, TwitchVideo} from '../../types';
+import { Creator , CreatorInfo } from '../../types';
 import { getCreatorInfo } from '../../apiCalls';
 import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
 
 type DetailsProps = {
-	displayedCreators: Creator[] | null
+	displayedCreators: Creator[] | null,
+	savedCreators: Creator[] | null
 }
 
 function Details({ displayedCreators }: DetailsProps) {
