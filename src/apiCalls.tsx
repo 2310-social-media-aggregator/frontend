@@ -45,8 +45,8 @@ export function getCreatorInfo(id: number) {
     });
 }
 
-export function addSavedCreator(creator: CreatorPost) {
-  return fetch('https://be2310-social-media-aggregator-18a4f3a92617.herokuapp.com/api/v1/users/1', {
+export function postCreator(creator: CreatorPost) {
+  return fetch('https://be2310-social-media-aggregator-18a4f3a92617.herokuapp.com/api/v1/users/1/follows', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(creator)
@@ -64,14 +64,14 @@ export function addSavedCreator(creator: CreatorPost) {
     });
 }
 
-export function deleteSavedCreator(id: number) {
+export function deleteCreator(id: number) {
   return fetch(`https://be2310-social-media-aggregator-18a4f3a92617.herokuapp.com/api/v1/users/1/follows/${id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
     .then(response => {
       if (response.ok) {
-        return response.json();
+        return 
       } else {
         throw new Error(`Failed to delete creator`);
       }

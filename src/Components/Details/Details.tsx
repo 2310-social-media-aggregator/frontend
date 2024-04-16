@@ -9,58 +9,67 @@ import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
 
 type DetailsProps = {
-	displayedCreators: Creator[] | null,
-	savedCreators: Creator[] | null
+	savedCreators: Creator[] | null,
+	favoriteCreator: (creatorInfo: CreatorInfo) => void,
+	unfavoriteCreator: (id: number) => void
 }
 
-function Details({ displayedCreators }: DetailsProps) {
-
+function Details({ savedCreators, favoriteCreator, unfavoriteCreator }: DetailsProps) {
 	const { id } = useParams();
 	const [selectedContentButton, setSelectedContentButton] = useState<string>('youtube');
 	const [creatorInfo, setCreatorInfo] = useState<CreatorInfo | null>(null);
 	const [favorited, setFavorited] = useState<boolean>(false)
 
-	const handleContentButtonClick = (buttonId: string) => {
-		setSelectedContentButton(buttonId);
-	};
-
-	let creator;
-	if (displayedCreators) {
-		creator = displayedCreators.find(creator => creator.id === parseInt(id || '', 10));
+	const checkIfFavorited = () => {
+		if (savedCreators?.find(creator => creator.id === parseInt(id || '', 10))) {
+			console.log('favorited', id)
+			setFavorited(true)
+		} else {
+			console.log('not favorited', id)
+			setFavorited(false)
+		}
 	}
 
-	const toggleHeart = () => {
+	const toggleHeart = (creatorInfo: CreatorInfo) => {
 		if (favorited) {
+			unfavoriteCreator(parseInt(creatorInfo.id))
 			setFavorited(false)
 		} else {
+			favoriteCreator(creatorInfo)
 			setFavorited(true)
 		}
 	}
+
+	const handleContentButtonClick = (buttonId: string) => {
+		setSelectedContentButton(buttonId);
+	};
 
 	useEffect(() => {
 		getCreatorInfo(parseInt(id || '', 10))
 		.then(data => {
 			setCreatorInfo(data.data);
+			console.log(savedCreators);
 		})
+		.then(data => checkIfFavorited())
 	}, [id])
 
 	return (
 		<div className='details-page'>
-			{creator && (
+			{creatorInfo && (
 				<section className='details-overlay'>
 					<div className='btn-container'>
 						<button
-						onClick={() => toggleHeart()}
+						onClick={() => toggleHeart(creatorInfo)}
 						className={favorited ? 'hrt-btn-empty hidden' : 'hrt-btn-empty'}>
 							<MdFavoriteBorder />
 						</button>
 						<button
-						onClick={() => toggleHeart()}
+						onClick={() => toggleHeart(creatorInfo)}
 						className={favorited ? 'hrt-btn-full' : 'hrt-btn-full hidden'}>
 								<MdFavorite />
 						</button>
 					</div>
-					<h2 className='creator-name'>{creator.name}</h2>
+					<h2 className='creator-name'>{creatorInfo.attributes.name}</h2>
 					<div className="socials-header">
 						<button
 							className={selectedContentButton === 'youtube' ? 'selected' : ''}

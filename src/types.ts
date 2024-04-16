@@ -3,7 +3,7 @@ export interface Creator {
   'id': number
 }
 
-export interface CreatorPost{
+export interface CreatorPost {
   "creator_id": number
 }
 
@@ -27,7 +27,7 @@ export interface TwitchVideo {
 }
 
 export interface CreatorInfo {
-  id: number;
+  id: string;
   type: string;
   attributes: {
     name: string;
