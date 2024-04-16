@@ -10,7 +10,7 @@ import { Creator, User, CreatorInfo } from '../../types';
 import { getUserInfo, getCreators, postCreator, deleteCreator } from '../../apiCalls';
 
 function App() {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<User | null>(null);
   const [savedCreators, setSavedCreators] = useState<Creator[] | null>(null);
   const [allCreators, setAllCreators] = useState<Creator[] | null>(null);
   const [displayedCreators, setDisplayedCreators] = useState<Creator[] | null>(null);
@@ -28,7 +28,7 @@ function App() {
         setUser(data.data.attributes);
         setSavedCreators(data.data.attributes.follows);
       })
-      .catch(error => setError('Failed to display user info. Please try again.'));
+      .catch(error => setError('Failed to display user info. Please try again later.'));
   }, []);
 
   const handlePageSwitch = (tab: string) => {
@@ -38,27 +38,25 @@ function App() {
         setDisplayedCreators(savedCreators);
       } else {
         setDisplayedCreators(null);
-      }
-  }
+      };
+  };
 
   const favoriteCreator = (creatorInfo: CreatorInfo) => {
-		const newFavorite = {'id': parseInt(creatorInfo.id), 'name': creatorInfo.attributes.name}
+		const newFavorite = {'id': parseInt(creatorInfo.id), 'name': creatorInfo.attributes.name};
 		if (savedCreators) {
 			const updatedFavorites = [...savedCreators, newFavorite];
 			setSavedCreators(updatedFavorites);
-			postCreator({"creator_id": parseInt(creatorInfo.id)})
-		} else {
-			console.log('didnt work')
-		}
-  }
+			postCreator({"creator_id": parseInt(creatorInfo.id)});
+		};
+  };
 
   const unfavoriteCreator = (id: number) => {
 		if (savedCreators) {
 			const updatedFavorites = savedCreators.filter(creator => creator.id !== id);
 			setSavedCreators(updatedFavorites);
-			deleteCreator(id)
-		}
-  }
+			deleteCreator(id);
+		};
+  };
 
   return (
     <div className="App">
@@ -77,6 +75,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

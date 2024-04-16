@@ -1,4 +1,4 @@
-import './Details.css'
+import './Details.css';
 import Youtube from '../Youtube/Youtube';
 import Twitch from '../Twitch/Twitch';
 import { useEffect, useState } from 'react';
@@ -12,33 +12,31 @@ type DetailsProps = {
 	savedCreators: Creator[] | null,
 	favoriteCreator: (creatorInfo: CreatorInfo) => void,
 	unfavoriteCreator: (id: number) => void
-}
+};
 
 function Details({ savedCreators, favoriteCreator, unfavoriteCreator }: DetailsProps) {
 	const { id } = useParams();
 	const [selectedContentButton, setSelectedContentButton] = useState<string>('youtube');
 	const [creatorInfo, setCreatorInfo] = useState<CreatorInfo | null>(null);
-	const [favorited, setFavorited] = useState<boolean>(false)
+	const [favorited, setFavorited] = useState<boolean>(false);
 
 	const checkIfFavorited = () => {
 		if (savedCreators?.find(creator => creator.id === parseInt(id || '', 10))) {
-			console.log('favorited', id)
-			setFavorited(true)
+			setFavorited(true);
 		} else {
-			console.log('not favorited', id)
-			setFavorited(false)
-		}
-	}
+			setFavorited(false);
+		};
+	};
 
 	const toggleHeart = (creatorInfo: CreatorInfo) => {
 		if (favorited) {
-			unfavoriteCreator(parseInt(creatorInfo.id))
-			setFavorited(false)
+			unfavoriteCreator(parseInt(creatorInfo.id));
+			setFavorited(false);
 		} else {
-			favoriteCreator(creatorInfo)
-			setFavorited(true)
-		}
-	}
+			favoriteCreator(creatorInfo);
+			setFavorited(true);
+		};
+	};
 
 	const handleContentButtonClick = (buttonId: string) => {
 		setSelectedContentButton(buttonId);
@@ -48,10 +46,9 @@ function Details({ savedCreators, favoriteCreator, unfavoriteCreator }: DetailsP
 		getCreatorInfo(parseInt(id || '', 10))
 		.then(data => {
 			setCreatorInfo(data.data);
-			console.log(savedCreators);
+			checkIfFavorited();
 		})
-		.then(data => checkIfFavorited())
-	}, [id])
+	}, [id]);
 
 	return (
 		<div className='details-page'>
@@ -84,7 +81,6 @@ function Details({ savedCreators, favoriteCreator, unfavoriteCreator }: DetailsP
 							Twitch
 						</button>
 					</div>
-
 					{selectedContentButton === 'youtube' && (
 						<>
 							{creatorInfo?.attributes.youtube_videos.length === 0 ? (
