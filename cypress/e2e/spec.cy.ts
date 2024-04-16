@@ -28,6 +28,7 @@ describe('application user flows', () => {
   it('takes user to all creators page and displays expected elements by clicking get started button', () => {
     cy.url().should('eq', 'http://localhost:3000/');
     cy.get('.start-btn').contains('Get Started').click();
+		cy.wait(500)//everything loads here
     cy.url().should('eq', 'http://localhost:3000/main');
     cy.get('.header-title h1').contains('PLATFORM');
     cy.get('h2').contains('Welcome, Mock Thomas');
@@ -35,6 +36,7 @@ describe('application user flows', () => {
     cy.get('.nav-item').contains('All Creators');
     cy.get('.nav-item').contains('Saved Creators');
     cy.get('.overlay').should('exist');
+		cy.wait(500)
     cy.get('.overlay').children().should('have.length', 5);
     cy.get('.card').first().contains('Mock Aztecross');
     cy.get('.card').last().contains('Mock Bawkbasoup');
@@ -43,6 +45,7 @@ describe('application user flows', () => {
   it('takes user to all creators page and displays expected elements by clicking all creators button', () => {
     cy.url().should('eq', 'http://localhost:3000/');
     cy.get('.nav-item').contains('All Creators').click();
+		cy.wait(500)
     cy.url().should('eq', 'http://localhost:3000/main');
     cy.get('.header-title h1').contains('PLATFORM');
     cy.get('h2').contains('Welcome, Mock Thomas');
@@ -50,7 +53,7 @@ describe('application user flows', () => {
     cy.get('.nav-item').contains('All Creators');
     cy.get('.nav-item').contains('Saved Creators');
     cy.get('.overlay').should('exist');
-    cy.get('.card').should('have.length', 5);
+    cy.get('.card').should('have.length', 5);//failing here
     cy.get('.card').first().contains('Mock Aztecross');
     cy.get('.card').last().contains('Mock Bawkbasoup');
   });
@@ -70,8 +73,10 @@ describe('application user flows', () => {
 
   it('displays creator details with Youtube videos', () => {
     cy.get('.start-btn').contains('Get Started').click();
+		cy.wait(500)
     cy.get('.overlay').should('exist');
-    cy.get('.card').contains('Mock Aztecross').click({ force: true });
+    cy.get('.card').contains('Mock Aztecross').click({ force: true });//failing here
+		cy.wait(500)
     cy.wait('@getCreatorDetails');
     cy.get('h2').contains('Mock Aztecross');
   });
