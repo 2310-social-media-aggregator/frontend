@@ -14,7 +14,8 @@ function Twitch({videoId}: TwitchProps) {
         allowFullScreen
         scrolling="no"
         height="378"
-        width="620"></iframe>
+        width="620"
+				></iframe>
     </div>
   );
 }
