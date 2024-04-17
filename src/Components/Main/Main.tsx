@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 type MainProps = {
   displayedCreators: Creator[] | null
-}
+};
 
 function Main({ displayedCreators }: MainProps) {
   let creatorCards;
@@ -21,7 +21,7 @@ function Main({ displayedCreators }: MainProps) {
         </Link>
       );
     });
-  }
+  };
   
   return (
     <section className='main-page'>
@@ -32,6 +32,6 @@ function Main({ displayedCreators }: MainProps) {
       </div>
     </section>
   );
-}
+};
 
 export default Main;

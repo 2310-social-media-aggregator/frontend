@@ -7,7 +7,7 @@ type HeaderProps = {
   activeTab: string,
   setActiveTab: (tab: 'saved' | 'all' | 'home') => void,
   user: User | null
-}
+};
 
 function Header({ handlePageSwitch, activeTab, setActiveTab, user }: HeaderProps) {
 

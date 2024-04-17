@@ -1,30 +1,29 @@
 {
-    "data": {
-      "id": "1",
-      "type": "creator_details",
-      "attributes": {
-        "name": "Mock Aztecross",
-        "youtube_videos": [
-          {
-            "id": "youtube_video_1",
-            "title": "Youtube Video 1"
-          },
-          {
-            "id": "youtube_video_2",
-            "title": "Youtube Video 2"
-          }
-        ],
-        "twitch_videos": [
-          {
-            "id": "twitch_video_1",
-            "title": "Twitch Video 1"
-          },
-          {
-            "id": "twitch_video_2",
-            "title": "Twitch Video 2"
-          }
-        ]
-      }
+  "data": {
+    "id": "1",
+    "type": "creator_details",
+    "attributes": {
+      "name": "Mock Aztecross",
+      "youtube_videos": [
+        {
+          "id": "youtube_video_1",
+          "title": "Youtube Video 1"
+        },
+        {
+          "id": "youtube_video_2",
+          "title": "Youtube Video 2"
+        }
+      ],
+      "twitch_videos": [
+        {
+          "id": "twitch_video_1",
+          "title": "Twitch Video 1"
+        },
+        {
+          "id": "twitch_video_2",
+          "title": "Twitch Video 2"
+        }
+      ]
     }
   }
-  
+}
