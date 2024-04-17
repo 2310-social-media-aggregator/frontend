@@ -50,6 +50,7 @@ function Details({ savedCreators, favoriteCreator, unfavoriteCreator }: DetailsP
 		})
 	}, [id]);
 
+
 	return (
 		<div className='details-page'>
 			{creatorInfo && (
