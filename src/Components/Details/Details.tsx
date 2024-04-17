@@ -46,68 +46,70 @@ function Details({ savedCreators, favoriteCreator, unfavoriteCreator }: DetailsP
 		getCreatorInfo(parseInt(id || '', 10))
 		.then(data => {
 			setCreatorInfo(data.data);
-			checkIfFavorited();
+			checkIfFavorited(); 
 		})
 	}, [id]);
 
 
 	return (
 		<div className='details-page'>
-			{creatorInfo && (
-				<section className='details-overlay'>
-					<div className='btn-container'>
-						<button
-						onClick={() => toggleHeart(creatorInfo)}
-						className={favorited ? 'hrt-btn-empty hidden' : 'hrt-btn-empty'}>
-							<MdFavoriteBorder />
-						</button>
-						<button
-						onClick={() => toggleHeart(creatorInfo)}
-						className={favorited ? 'hrt-btn-full' : 'hrt-btn-full hidden'}>
-								<MdFavorite />
-						</button>
-					</div>
-					<h2 className='creator-name'>{creatorInfo.attributes.name}</h2>
-					<div className="socials-header">
-						<button
-							className={selectedContentButton === 'youtube' ? 'selected' : ''}
-							onClick={() => handleContentButtonClick('youtube')}
-						>
-							Youtube
-						</button>
-						<button
-							className={selectedContentButton === 'twitch' ? 'selected' : ''}
-							onClick={() => handleContentButtonClick('twitch')}
-						>
-							Twitch
-						</button>
-					</div>
-					{selectedContentButton === 'youtube' && (
-						<>
-							{creatorInfo?.attributes.youtube_videos.length === 0 ? (
-								<p>No videos available for this section</p>
-							) : (
-								creatorInfo?.attributes.youtube_videos.map(video => (
-									<Youtube key={video.id} videoId={video.id} />
-								))
-							)}
-						</>
-					)}
-					{selectedContentButton === 'twitch' && (
-						<>
-							{creatorInfo?.attributes.youtube_videos.length === 0 ? (
-								<p>No videos available for this section</p>
-							) : (
-								creatorInfo?.attributes.twitch_videos.map(video => (
-									<Twitch key={video.id} videoId={video.id} />
-								))
-							)}
-						</>
-					)}
-				</section>
-			)}
+		  {creatorInfo && (
+			<section className='details-overlay'>
+			  <div className='btn-container'>
+				<button
+				  onClick={() => toggleHeart(creatorInfo)}
+				  className={favorited ? 'hrt-btn-empty hidden' : 'hrt-btn-empty'}
+				  data-testid="empty-favorite-button"> 
+				  <MdFavoriteBorder />
+				</button>
+				<button
+				  onClick={() => toggleHeart(creatorInfo)}
+				  className={favorited ? 'hrt-btn-full' : 'hrt-btn-full hidden'}
+				  data-testid="full-favorite-button">
+				  <MdFavorite />
+				</button>
+			  </div>
+			  <h2 className='creator-name'>{creatorInfo.attributes.name}</h2>
+			  <div className="socials-header">
+				<button
+				  className={selectedContentButton === 'youtube' ? 'selected' : ''}
+				  onClick={() => handleContentButtonClick('youtube')}
+				>
+				  Youtube
+				</button>
+				<button
+				  className={selectedContentButton === 'twitch' ? 'selected' : ''}
+				  onClick={() => handleContentButtonClick('twitch')}
+				>
+				  Twitch
+				</button>
+			  </div>
+			  {selectedContentButton === 'youtube' && (
+				<>
+				  {creatorInfo?.attributes.youtube_videos.length === 0 ? (
+					<p>No videos available for this section</p>
+				  ) : (
+					creatorInfo?.attributes.youtube_videos.map(video => (
+					  <Youtube key={video.id} videoId={video.id} />
+					))
+				  )}
+				</>
+			  )}
+			  {selectedContentButton === 'twitch' && (
+				<>
+				  {creatorInfo?.attributes.youtube_videos.length === 0 ? (
+					<p>No videos available for this section</p>
+				  ) : (
+					creatorInfo?.attributes.twitch_videos.map(video => (
+					  <Twitch key={video.id} videoId={video.id} />
+					))
+				  )}
+				</>
+			  )}
+			</section>
+		  )}
 		</div>
-	);
+	  );
 };
 
 export default Details;
