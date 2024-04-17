@@ -19,9 +19,6 @@ function Details({ displayedCreators }: DetailsProps) {
 		setSelectedButton(buttonId);
 	};
 
-	// useEffect(() => {
-	// 	console.log("button changed to: ", selectedButton)
-	// }, [selectedButton])
 
 	let creator;
 	if (displayedCreators) {
@@ -29,20 +26,16 @@ function Details({ displayedCreators }: DetailsProps) {
 	}
 
 	useEffect(() => {
-		getCreatorInfo(parseInt(id || '', 10))
-		.then(data => {
-			// console.log("the data retrieved",data.data);
-			setCreatorInfo(data.data);
-		})
-	}, [id])
+		const fetchData = async () => {
+			const data = await getCreatorInfo(parseInt(id || '', 10));
+			if (data) {
+				setCreatorInfo(data.data);
+			}
+		};
+	
+		fetchData();
+	}, [id]);
 
-	// useEffect(() => {
-	// 	console.log("value of creatorInfo", creatorInfo);
-	// 	if (creatorInfo) {
-	// 		console.log("value of youtube videos: ", creatorInfo.attributes.youtube_videos);
-	// 		console.log("value of twitch videos: ", creatorInfo.attributes.twitch_videos);
-	// 	}
-	// }, [creatorInfo]);
 
 	return (
 		<div className='details'>
@@ -63,8 +56,8 @@ function Details({ displayedCreators }: DetailsProps) {
 							Twitch
 						</button>
 						<button
-							className={selectedButton === 'ect' ? 'selected' : ''}
-							onClick={() => handleButtonClick('ect')}
+							className={selectedButton === 'etc' ? 'selected' : ''}
+							onClick={() => handleButtonClick('etc')}
 						>
 							Etc.
 						</button>
