@@ -2,11 +2,13 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Header from './Header';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { User } from '../../types';
 
 describe('Header component', () => {
   const mockHandlePageSwitch = jest.fn();
   const mockSetActiveTab = jest.fn();
-  const user = { name: 'Gavin' };
+  let user: User = { name: 'Gavin', follows: [] };
+
 
   afterEach(() => {
     jest.clearAllMocks();
