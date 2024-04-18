@@ -5,16 +5,16 @@ Welcome to Platform! This all-in-one application allows users to view their favo
 
 ## Developers
 ### Front-end:
-- Matthew Shindel  matthew@shindel.com
-- Dana Zack danaezack@gmail.com
-- Edward Gavin Garcia Edwardgavingarcia@yahoo.com
+- Dana Zack: [GitHub](https://github.com/dana-zack), [LinkedIn](https://www.linkedin.com/in/danazack/), [Email](danaezack@gmail.com)
+- Edward Gavin Garcia: [GitHub](https://github.com/EGavinG), [LinkedIn](https://www.linkedin.com/in/egavingarcia/), [Email](Edwardgavingarcia@yahoo.com)
+- Matthew Shindel: [GitHub](https://github.com/MatthewShindel), [LinkedIn](https://www.linkedin.com/in/mshindel/), [Email](matthew@shindel.com)
+
 
 
 ### Back-end:
-
-- Quin Nordmark quinnordmark@gmail.com
-- Issac Mitchell tmitchellisaac@gmail.com
-- Dylan Perry dylanbperry@gmail.com
+- Dylan Perry: [GitHub](https://github.com/dylan-perry), [LinkedIn](https://www.linkedin.com/in/dylanperry/), [Email](dylanbperry@gmail.com)
+- Quin Nordmark: [GitHub](https://github.com/n0rdie), [LinkedIn](https://www.linkedin.com/in/quinnordmark/), [Email](quinnordmark@gmail.com)
+- Isaac Mitchell: [GitHub](https://github.com/tmitchellisaac), [LinkedIn](https://www.linkedin.com/in/isaac-mitchell-877272286/), [Email](tmitchellisaac@gmail.com)
 
 ## About Platform
 
