@@ -20,7 +20,7 @@ Welcome to Platform! This all-in-one application allows users to view their favo
 
 Platform is a social media aggregator application that allows users to browse through both YouTube and Twitch content of various content creators, as well as add/remove content creators from their own "saved creators" list.
 
-A user can select from a list of creators, each of which have their own Youtube and Twitch videos. When selected, the videos are displayed on a seperate webpage.
+A user can select from a list of creators, each of which have their own Youtube and Twitch videos. When selected, the videos are displayed on a separate webpage.
 
 ![Gif of the application running](/src/images/Demo%20Gif.gif)
 
