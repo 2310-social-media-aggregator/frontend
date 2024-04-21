@@ -75,7 +75,6 @@
 }
 
 .details-overlay {
-  /* animation: fadeIn 1s ease; */
   background-color: white;
   width: 900px;
   min-height: 70vh;

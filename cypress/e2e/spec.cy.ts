@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('application user flows', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://be2310-social-media-aggregator-18a4f3a92617.herokuapp.com/api/v1/creators', {
@@ -69,7 +71,7 @@ describe('application user flows', () => {
 		cy.wait(900)
     cy.get('.overlay').should('exist');
     cy.wait(900)
-    cy.get('.card').contains('Mock Aztecross').click({ force: true });//failing here
+    cy.get('.card').contains('Mock Aztecross').click({ force: true });
 		cy.wait(900)
     cy.wait('@getCreatorDetails');
     cy.get('h2').contains('Mock Aztecross');
