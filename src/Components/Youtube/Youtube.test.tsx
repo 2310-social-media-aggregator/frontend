@@ -4,7 +4,7 @@ import Youtube from './Youtube';
 
 describe('Youtube component', () => {
   it('renders correctly', () => {
-    const videoId = 'abcd1234'; // Mock video ID
+    const videoId = 'abcd1234'; 
     render(<Youtube videoId={videoId} />);
     const iframeElement = screen.getByTitle('YouTube video player');
     expect(iframeElement).toBeInTheDocument();

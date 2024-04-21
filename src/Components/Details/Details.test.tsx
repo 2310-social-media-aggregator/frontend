@@ -62,7 +62,7 @@ const mockCreatorInfo = {
   },
 };
 
-const mockSavedCreators: Creator[] = [{ id: 9, name: 'Joseph Anderson' }]; // Update the id value to a number
+const mockSavedCreators: Creator[] = [{ id: 9, name: 'Joseph Anderson' }];
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
